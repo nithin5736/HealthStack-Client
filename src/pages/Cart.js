@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Popup from "../components/Popup";
 import paymentImg from "../images/payment.gif";
 import axios from "axios";
+import { hostURL } from "../URL";
 
 const Cart = () => {
   const deliver = 40;
@@ -77,7 +78,7 @@ const Cart = () => {
     e.preventDefault();
     if (validateForm()) {
       axios
-        .post("https://json-server-pjzb6c47l-nithin5736.vercel.app/orders", {
+        .post(`${hostURL}/orders`, {
           accountholder: payment.name,
           phone: payment.phone,
           accountnumber: payment.ac,

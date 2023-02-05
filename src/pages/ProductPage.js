@@ -9,6 +9,7 @@ import { ThemeContext } from "../App";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { hostURL } from "../URL";
 
 const ProductPage = () => {
   const { cart, setCart, totalCount, total, setTotal, setTotalCount } =
@@ -20,7 +21,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get(`https://json-server-pjzb6c47l-nithin5736.vercel.app/products/${id}`)
+      .get(`${hostURL}/products/${id}`)
       .then((res) => {
         setProduct(res.data);
         console.log(product);

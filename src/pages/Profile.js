@@ -6,6 +6,7 @@ import Announcement from "../components/Announcement";
 import profileImg from "../images/profile.gif";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { hostURL } from "../URL";
 
 const Profile = () => {
   const USER_KEY = "current user";
@@ -18,7 +19,7 @@ const Profile = () => {
     e.preventDefault();
     localStorage.setItem(USER_KEY, JSON.stringify(profile));
     axios
-      .patch(`https://json-server-pjzb6c47l-nithin5736.vercel.app/users/${profile.id}`, profile)
+      .patch(`${hostURL}/users/${profile.id}`, profile)
       .then(() => {
         alert("Your Profile has been updated successfully");
         window.location.reload();

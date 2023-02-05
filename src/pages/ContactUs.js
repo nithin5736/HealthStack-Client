@@ -6,6 +6,7 @@ import Announcement from "../components/Announcement";
 import contact from "../images/contactus.gif";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import { hostURL } from "../URL";
 
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const ContactUs = () => {
       navigate("/login");
     }
     axios
-      .post("https://json-server-pjzb6c47l-nithin5736.vercel.app/queries", {
+      .post(`${hostURL}/queries`, {
         name: query.name,
         email: query.email,
         ques: query.ques,

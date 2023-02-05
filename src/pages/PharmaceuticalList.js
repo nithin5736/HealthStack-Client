@@ -7,6 +7,7 @@ import Newsletter from "../components/Newsletter";
 import Pharmaceutical from "../components/Pharmaceutical";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
+import { hostURL } from "../URL";
 
 const PharmaceuticalList = () => {
   const [popularProducts, setPopularProducts] = useState([]);
@@ -14,7 +15,7 @@ const PharmaceuticalList = () => {
 
   useEffect(() => {
     axios
-      .get("https://json-server-pjzb6c47l-nithin5736.vercel.app/products?type=pharmaceutical")
+      .get(`${hostURL}/products?type=pharmaceutical`)
       .then((res) => {
         setPopularProducts(res.data);
       })

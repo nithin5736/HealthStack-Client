@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { hostURL } from "../URL";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Register = () => {
     if (validateForm()) {
       // console.log(user);
       if (user.usertype === "Seller") {
-        await axios.post("https://json-server-pjzb6c47l-nithin5736.vercel.app/users", {
+        await axios.post(`${hostURL}/users`, {
           firstname: user.firstname,
           lastname: user.lastname,
           username: user.username,
@@ -64,8 +65,24 @@ const Register = () => {
           phone: user.phone,
           address: user.address,
         });
+
+        setUser({
+          firstname: "",
+          lastname: "",
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          usertype: "",
+          pincode: "",
+          phone: "",
+          address: "",
+        });
+        alert('Registered Successfully');
+        // navigate("/login");
+        
       } else {
-        await axios.post("https://json-server-pjzb6c47l-nithin5736.vercel.app/users", {
+        await axios.post(`${hostURL}/users`, {
           firstname: user.firstname,
           lastname: user.lastname,
           username: user.username,

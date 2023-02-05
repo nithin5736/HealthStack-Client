@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Product from "./Product";
 import axios from "axios";
+import { hostURL } from "../URL";
 
 const HomeMedicines = () => {
   const [popularProducts, setPopularProducts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://json-server-pjzb6c47l-nithin5736.vercel.app/products?type=medicine&_limit=4")
+      .get(`${hostURL}/products?type=medicine&_limit=4`)
       .then((res) => {
         setPopularProducts(res.data);
       })

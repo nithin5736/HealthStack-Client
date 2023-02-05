@@ -6,6 +6,7 @@ import Announcement from "../components/Announcement";
 import addproduct from "../images/addproduct.gif";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { hostURL } from "../URL";
 
 const AddProduct = () => {
   const [addProduct, setAddProduct] = useState({
@@ -19,7 +20,7 @@ const AddProduct = () => {
   const [flag, setFlag] = useState(1);
 
   useEffect(() => {
-    axios.get("https://json-server-pjzb6c47l-nithin5736.vercel.app/products").then((res) => {
+    axios.get(`${hostURL}/products`).then((res) => {
       setProducts(res.data);
     });
   }, []);
@@ -43,7 +44,7 @@ const AddProduct = () => {
 
     if (flag === 1) {
       axios
-        .post("https://json-server-pjzb6c47l-nithin5736.vercel.app/products", {
+        .post(`${hostURL}/products`, {
           productname: addProduct.productname,
           img: addProduct.img,
           price: addProduct.price,

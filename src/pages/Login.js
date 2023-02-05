@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
+import { hostURL } from "../URL";
 
 const Login = () => {
   const form = useRef();
@@ -17,7 +18,7 @@ const Login = () => {
   const USER_KEY = "current user";
 
   const checkUser = async (user) => {
-    const allUsers = await axios.get("https://json-server-pjzb6c47l-nithin5736.vercel.app/users");
+    const allUsers = await axios.get(`${hostURL}/users`);
     // console.log(allUsers.data);
     let flag = false;
     for (let u of allUsers.data) {
@@ -89,7 +90,7 @@ const Login = () => {
 
   const getEmail = () => {
     axios
-      .get(`https://json-server-pjzb6c47l-nithin5736.vercel.app/users?email=${user.email}`)
+      .get(`${hostURL}/users?email=${user.email}`)
       .then((res) => {
         setU(res.data);
       })
