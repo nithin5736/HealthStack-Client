@@ -95,7 +95,7 @@ const Register = () => {
         address: "",
       });
       alert('Registered Successfully');
-      navigate("/login");
+      // navigate("/login");
     }
   };
 

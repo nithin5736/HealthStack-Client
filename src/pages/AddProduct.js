@@ -54,7 +54,7 @@ const AddProduct = () => {
           alert("Your Product has been added successfully");
         })
         .catch(() => {
-          alert("Please enter valid Product details");
+          alert("Item already exits.So item can't be added.");
         });
       setAddProduct({
         productname: "",
