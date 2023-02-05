@@ -21,7 +21,7 @@ const Profile = () => {
       .patch(`https://json-server-pjzb6c47l-nithin5736.vercel.app/users/${profile.id}`, profile)
       .then(() => {
         alert("Your Profile has been updated successfully");
-        window.location.reload(false);
+        window.location.reload();
       })
       .catch(() => {
         alert("Something went wrong.Please try again.");
